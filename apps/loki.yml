@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: loki
+  namespace: argo
+  labels:
+    app: loki
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/masem/kube-test.git
+    targetRevision: HEAD
+    path: loki
+  destination:
+    name: in-cluster
+    namespace: loki
+  syncPolicy:
+    syncOptions:
+    - Validate=true
+    - CreateNamespace=true
+
