@@ -10,8 +10,9 @@ spec:
   project: default
   source:
     path: helm
-    repoURL: https://gitlab.com/6shore.net/kad.git
+    repoURL: https://github.com/masem/kube-test.git
     targetRevision: HEAD
+#    path: argo/cd
   syncPolicy:
     automated:
       prune: true
