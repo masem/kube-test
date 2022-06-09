@@ -198,6 +198,6 @@ spec:
         - hostPath:
             path: /etc/machine-id
           name: machine-id
-        #- hostPath:
-        #    path: /var/log/kubernetes-audit/
-        #  name: kubernetes-audit
+        - hostPath:
+            path: /var/log/kubernetes-audit/
+          name: kubernetes-audit

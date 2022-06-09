@@ -14,6 +14,18 @@ server:
 target_config:
   sync_period: 10s
 scrape_configs:
+- job_name: systemd-nonsense
+  journal:
+    max_age: 12h
+    labels:
+      job: systemd-journal
+      node: ${HOSTNAME}
+  relabel_configs:
+  - action: drop
+    regex: docker.service
+    source_labels: ['__journal__systemd_unit']
+  - source_labels: ['__journal__systemd_unit']
+    target_label: 'unit'
 - job_name: kubernetes-pods-name
   pipeline_stages:
     - docker: {}
