@@ -1,11 +1,11 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: kad
+  name: kad-test
   namespace: argo
 spec:
   destination:
-    namespace: kad
+    namespace: kad-test
     server: https://kubernetes.default.svc
   project: default
   source:
