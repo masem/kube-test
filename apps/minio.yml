@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: minio
+  namespace: argo
+  labels:
+    app: minio
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/masem/kube-test.git
+    targetRevision: HEAD
+    path: minio
+  destination:
+    name: in-cluster
+    namespace: minio
+  syncPolicy:
+    syncOptions:
+    - Validate=true
+    - CreateNamespace=true
+
