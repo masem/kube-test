@@ -47,7 +47,7 @@ spec:
     - name: basicauth
     services:
     - name: blackbox-exporter
-      port: 8080
+      port: 80
 
   - match: HostRegexp(`grafana.{domain:.+}`)
     kind: Rule
