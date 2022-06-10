@@ -41,6 +41,14 @@ spec:
     - name: prometheus
       port: 9090
 
+  - match: HostRegexp(`blackbox.{domain:.+}`)
+    kind: Rule
+    middlewares:
+    - name: basicauth
+    services:
+    - name: blackbox-exporter
+      port: 8080
+
   - match: HostRegexp(`grafana.{domain:.+}`)
     kind: Rule
     middlewares:
