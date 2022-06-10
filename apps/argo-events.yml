@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argo-events
+  namespace: argo
+  labels:
+    app: argo-events
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/masem/kube-test.git
+    targetRevision: HEAD
+    path: argo/events
+  destination:
+    name: in-cluster
+    namespace: argo
+  syncPolicy:
+    syncOptions:
+    - Validate=true
+    - CreateNamespace=true
+
